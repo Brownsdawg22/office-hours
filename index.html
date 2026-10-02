@@ -188,7 +188,7 @@
 
     <footer class="note">Not a lawn-service booking. This is a paid consult. No refund once the call starts. Reschedule once with 24 hours notice.</footer>
   </div>
-  <script>
+  <script type="module">
     const CONFIG = {
       hostHandle: "Brettbrownlee22",
       venmoUser: "Brett-Brownlee",
@@ -217,13 +217,24 @@
     const list = document.getElementById("slot-list");
     let selected = null;
 
+    async function loadSlots() {
+      try {
+        const res = await fetch("https://raw.githubusercontent.com/Brownsdawg22/office-hours/main/slots.json?t=" + Date.now());
+        if (!res.ok) return;
+        const data = await res.json();
+        if (Array.isArray(data.slots) && data.slots.length) CONFIG.slots = data.slots;
+      } catch (err) {}
+    }
+    await loadSlots();
+
     CONFIG.slots.forEach((slot) => {
       const held = holds[slot.id];
       const btn = document.createElement("button");
       btn.type = "button";
       btn.className = "slot";
-      btn.disabled = Boolean(held);
-      btn.innerHTML = `<div><strong>${slot.label}</strong><span>${slot.time}</span></div><span class="badge">${held ? "Held" : "Open"}</span>`;
+      const taken = slot.status && slot.status !== "open";
+      btn.disabled = Boolean(held) || taken;
+      btn.innerHTML = `<div><strong>${slot.label}</strong><span>${slot.time}</span></div><span class="badge">${taken ? "Taken" : held ? "Held" : "Open"}</span>`;
       btn.addEventListener("click", () => {
         selected = slot;
         document.querySelectorAll("button.slot").forEach((el) => el.classList.remove("selected"));
