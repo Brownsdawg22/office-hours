@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Office hours — Brett Brownlee</title>
+  <style>
+    :root {
+      --ink: #1c1915;
+      --muted: #6d655c;
+      --line: #e4ddd3;
+      --paper: #f7f3ee;
+      --card: #fffdfb;
+      --accent: #9a4a1c;
+      --accent-dark: #6f3212;
+      --ok: #2f6b45;
+      --hold: #8a5a12;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+      background: var(--paper);
+      color: var(--ink);
+    }
+    .wrap { max-width: 760px; margin: 0 auto; padding: 40px 20px 72px; }
+    header p.kicker {
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-size: 12px;
+      font-family: ui-sans-serif, system-ui, sans-serif;
+      color: var(--accent);
+      margin: 0 0 8px;
+    }
+    h1 { font-size: 40px; line-height: 1.05; margin: 0 0 12px; font-weight: 560; }
+    .lede { font-size: 18px; line-height: 1.45; color: var(--muted); margin: 0 0 28px; }
+    .price {
+      display: flex; gap: 18px; flex-wrap: wrap;
+      border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+      padding: 14px 0; margin-bottom: 28px;
+      font-family: ui-sans-serif, system-ui, sans-serif; font-size: 14px;
+    }
+    .price b { display: block; font-size: 16px; color: var(--ink); }
+    h2 { font-size: 22px; margin: 0 0 12px; }
+    .slots { display: grid; gap: 10px; }
+    button.slot, button.pay, button.primary, button.ghost {
+      font-family: ui-sans-serif, system-ui, sans-serif;
+      cursor: pointer;
+    }
+    button.slot {
+      text-align: left;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 14px 16px;
+      display: flex; justify-content: space-between; gap: 12px; align-items: center;
+    }
+    button.slot strong { display: block; font-size: 16px; }
+    button.slot span { color: var(--muted); font-size: 13px; }
+    button.slot.selected { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+    button.slot:disabled { opacity: 0.45; cursor: not-allowed; }
+    form, .panel {
+      margin-top: 22px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 18px;
+    }
+    label { display: block; font-family: ui-sans-serif, system-ui, sans-serif; font-size: 13px; margin: 12px 0 6px; }
+    input, select {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 12px;
+      font-size: 16px;
+      font-family: ui-sans-serif, system-ui, sans-serif;
+      background: #fff;
+    }
+    .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media (max-width: 640px) { .row { grid-template-columns: 1fr; } h1 { font-size: 32px; } }
+    button.primary, a.primary {
+      margin-top: 16px;
+      background: var(--ink);
+      color: #fff;
+      border: 0;
+      border-radius: 999px;
+      padding: 12px 18px;
+      font-size: 15px;
+      text-decoration: none;
+      display: inline-block;
+    }
+    button.ghost, a.ghost {
+      margin-top: 10px;
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 11px 16px;
+      font-size: 14px;
+      text-decoration: none;
+      display: inline-block;
+      font-family: ui-sans-serif, system-ui, sans-serif;
+    }
+    .pay-options { display: grid; gap: 10px; margin-top: 8px; }
+    .pay-card {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 14px;
+    }
+    .pay-card h3 { margin: 0 0 6px; font-size: 16px; }
+    .pay-card p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.4; }
+    .code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      background: #f3eee8;
+      padding: 10px 12px;
+      border-radius: 8px;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+    .note { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 13px; color: var(--muted); line-height: 1.45; }
+    .badge { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 12px; color: var(--hold); }
+    .hidden { display: none; }
+    footer { margin-top: 28px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <p class="kicker">Brett Brownlee · Office hours</p>
+      <h1>One hour. $250. Zoom.</h1>
+      <p class="lede">Pick a slot. Pay to lock it. The calendar invite goes out only after the $250 lands. A hold lasts two hours, then the slot opens again.</p>
+      <div class="price">
+        <div><b>$250</b> per hour</div>
+        <div><b>Zoom</b> link in the invite</div>
+        <div><b>Sat 7–10am</b> Central, 1-hour slots</div>
+      </div>
+    </header>
+
+    <section id="step-slots">
+      <h2>Open slots</h2>
+      <div class="slots" id="slot-list"></div>
+    </section>
+
+    <form id="step-details" class="hidden">
+      <h2>Your details</h2>
+      <p class="note" id="chosen-label"></p>
+      <div class="row">
+        <div>
+          <label for="name">Name</label>
+          <input id="name" required placeholder="Your name" />
+        </div>
+        <div>
+          <label for="email">Email for the invite</label>
+          <input id="email" type="email" required placeholder="you@email.com" />
+        </div>
+      </div>
+      <label for="handle">X handle</label>
+      <input id="handle" placeholder="@yourhandle" />
+      <label for="method">How you will pay</label>
+      <select id="method">
+        <option value="xmoney">X Money — request to @Brettbrownlee22</option>
+        <option value="venmo">Venmo — $250 to the username below</option>
+      </select>
+      <button class="primary" type="submit">Continue to payment</button>
+    </form>
+
+    <section id="step-pay" class="panel hidden">
+      <h2>Pay to confirm</h2>
+      <p class="note" id="pay-summary"></p>
+      <div class="code" id="ref-code"></div>
+      <div class="pay-options">
+        <div class="pay-card" id="xmoney-card">
+          <h3>X Money</h3>
+          <p>Open X, go to Money, and send <b>$250</b> to <b>@Brettbrownlee22</b>. Put the reference code in the note. If you would rather be requested, send Brett that handle and he will request $250.</p>
+          <a class="primary" id="x-link" href="https://x.com/Brettbrownlee22" target="_blank" rel="noopener">Open @Brettbrownlee22</a>
+        </div>
+        <div class="pay-card" id="venmo-card">
+          <h3>Venmo</h3>
+          <p>Pay <b id="venmo-user">$250 to @Brett-Brownlee</b>. Put the reference code in the note. Slot is not confirmed until Brett sees it.</p>
+          <img src="venmo-brett.jpg" alt="Venmo QR for Brett Brownlee" style="width:220px;display:block;margin:12px 0;border-radius:12px" />
+          <a class="primary" id="venmo-link" target="_blank" rel="noopener">Pay $250 on Venmo</a>
+        </div>
+      </div>
+      <p class="note" style="margin-top:16px">After you pay, send the reference code to Brett. He checks the payment, then emails the Zoom invite. Unpaid holds drop after 2 hours.</p>
+      <button class="ghost" id="copy-btn" type="button">Copy confirmation note</button>
+      <button class="ghost" id="reset-btn" type="button">Pick a different slot</button>
+    </section>
+
+    <footer class="note">Not a lawn-service booking. This is a paid consult. No refund once the call starts. Reschedule once with 24 hours notice.</footer>
+  </div>
+  <script>
+    const CONFIG = {
+      hostHandle: "Brettbrownlee22",
+      venmoUser: "Brett-Brownlee",
+      amount: 250,
+      holdHours: 2,
+      slots: [
+        { id: "sat-1004-0700", label: "Sat Oct 4", time: "7:00–8:00am CT" },
+        { id: "sat-1004-0800", label: "Sat Oct 4", time: "8:00–9:00am CT" },
+        { id: "sat-1004-0900", label: "Sat Oct 4", time: "9:00–10:00am CT" },
+        { id: "sat-1011-0700", label: "Sat Oct 11", time: "7:00–8:00am CT" },
+        { id: "sat-1011-0800", label: "Sat Oct 11", time: "8:00–9:00am CT" },
+        { id: "sat-1011-0900", label: "Sat Oct 11", time: "9:00–10:00am CT" },
+        { id: "sat-1018-0700", label: "Sat Oct 18", time: "7:00–8:00am CT" },
+        { id: "sat-1018-0800", label: "Sat Oct 18", time: "8:00–9:00am CT" },
+        { id: "sat-1018-0900", label: "Sat Oct 18", time: "9:00–10:00am CT" }
+      ]
+    };
+
+    const holds = JSON.parse(localStorage.getItem("oh-holds") || "{}");
+    const now = Date.now();
+    Object.keys(holds).forEach((id) => {
+      if (holds[id].expires < now) delete holds[id];
+    });
+    localStorage.setItem("oh-holds", JSON.stringify(holds));
+
+    const list = document.getElementById("slot-list");
+    let selected = null;
+
+    CONFIG.slots.forEach((slot) => {
+      const held = holds[slot.id];
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "slot";
+      btn.disabled = Boolean(held);
+      btn.innerHTML = `<div><strong>${slot.label}</strong><span>${slot.time}</span></div><span class="badge">${held ? "Held" : "Open"}</span>`;
+      btn.addEventListener("click", () => {
+        selected = slot;
+        document.querySelectorAll("button.slot").forEach((el) => el.classList.remove("selected"));
+        btn.classList.add("selected");
+        document.getElementById("step-details").classList.remove("hidden");
+        document.getElementById("chosen-label").textContent = slot.label + " · " + slot.time;
+        document.getElementById("step-details").scrollIntoView({ behavior: "smooth" });
+      });
+      list.appendChild(btn);
+    });
+
+    document.getElementById("step-details").addEventListener("submit", (event) => {
+      event.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const handle = document.getElementById("handle").value.trim();
+      const method = document.getElementById("method").value;
+      const ref = "OH-" + selected.id.slice(-4).toUpperCase() + "-" + Math.random().toString(36).slice(2, 6).toUpperCase();
+      holds[selected.id] = { expires: Date.now() + CONFIG.holdHours * 3600 * 1000, ref, name, email };
+      localStorage.setItem("oh-holds", JSON.stringify(holds));
+
+      const note = `${ref} Zoom ${selected.label} ${selected.time} ${name}`;
+      document.getElementById("pay-summary").textContent = `${name} · ${email} · ${selected.label} ${selected.time}`;
+      document.getElementById("ref-code").textContent = "Reference " + ref + " · include this in the payment note";
+      document.getElementById("xmoney-card").classList.toggle("hidden", method !== "xmoney");
+      document.getElementById("venmo-card").classList.toggle("hidden", method !== "venmo");
+      const venmo = `https://venmo.com/?txn=pay&audience=private&recipients=${encodeURIComponent(CONFIG.venmoUser)}&amount=${CONFIG.amount}&note=${encodeURIComponent(note)}`;
+      document.getElementById("venmo-link").href = venmo;
+      document.getElementById("venmo-user").textContent = `$${CONFIG.amount} to @${CONFIG.venmoUser}`;
+      document.getElementById("step-pay").classList.remove("hidden");
+      document.getElementById("step-pay").scrollIntoView({ behavior: "smooth" });
+
+      const packet = { ref, name, email, handle, method, slot: selected, amount: CONFIG.amount, note };
+      document.getElementById("copy-btn").onclick = async () => {
+        const text = `Paid consult request\n${note}\nEmail: ${email}\nX: ${handle || "n/a"}\nPay via: ${method}\nAmount: $${CONFIG.amount}`;
+        try { await navigator.clipboard.writeText(text); document.getElementById("copy-btn").textContent = "Copied"; }
+        catch { document.getElementById("copy-btn").textContent = text; }
+        console.log(packet);
+      };
+    });
+
+    document.getElementById("reset-btn").addEventListener("click", () => location.reload());
+  </script>
+</body>
+</html>
