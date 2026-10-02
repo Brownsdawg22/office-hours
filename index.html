@@ -127,11 +127,11 @@
   <div class="wrap">
     <header>
       <p class="kicker">Brett Brownlee · Office hours</p>
-      <h1>One hour. $250. Zoom.</h1>
+      <h1>One hour. $250. Google Meet.</h1>
       <p class="lede">Pick a slot. Pay to lock it. The calendar invite goes out only after the $250 lands. A hold lasts two hours, then the slot opens again.</p>
       <div class="price">
         <div><b>$250</b> per hour</div>
-        <div><b>Zoom</b> link in the invite</div>
+        <div><b>Google Meet</b> link in the invite</div>
         <div><b>Sat 7–10am</b> Central, 1-hour slots</div>
       </div>
     </header>
@@ -181,7 +181,7 @@
           <a class="primary" id="venmo-link" target="_blank" rel="noopener">Pay $250 on Venmo</a>
         </div>
       </div>
-      <p class="note" style="margin-top:16px">After you pay, send the reference code to Brett. He checks the payment, then emails the Zoom invite. Unpaid holds drop after 2 hours.</p>
+      <p class="note" style="margin-top:16px">After you pay, send the reference code to Brett. He checks the payment, then emails the Google Meet invite. Unpaid holds drop after 2 hours.</p>
       <button class="ghost" id="copy-btn" type="button">Copy confirmation note</button>
       <button class="ghost" id="reset-btn" type="button">Pick a different slot</button>
     </section>
@@ -256,7 +256,7 @@
       holds[selected.id] = { expires: Date.now() + CONFIG.holdHours * 3600 * 1000, ref, name, email };
       localStorage.setItem("oh-holds", JSON.stringify(holds));
 
-      const note = `${ref} Zoom ${selected.label} ${selected.time} ${name}`;
+      const note = `${ref} Meet ${selected.label} ${selected.time} ${name}`;
       document.getElementById("pay-summary").textContent = `${name} · ${email} · ${selected.label} ${selected.time}`;
       document.getElementById("ref-code").textContent = "Reference " + ref + " · include this in the payment note";
       document.getElementById("xmoney-card").classList.toggle("hidden", method !== "xmoney");
