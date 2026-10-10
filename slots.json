@@ -1,14 +1,14 @@
 {
-  "updated": "2026-10-02T09:36:00-05:00",
+  "updated": "2026-10-10T08:40:00-05:00",
   "slots": [
-    {"id": "sat-1004-0700", "label": "Sat Oct 4", "time": "7:00–8:00am CT", "status": "open"},
-    {"id": "sat-1004-0800", "label": "Sat Oct 4", "time": "8:00–9:00am CT", "status": "open"},
-    {"id": "sat-1004-0900", "label": "Sat Oct 4", "time": "9:00–10:00am CT", "status": "open"},
-    {"id": "sat-1011-0700", "label": "Sat Oct 11", "time": "7:00–8:00am CT", "status": "open"},
-    {"id": "sat-1011-0800", "label": "Sat Oct 11", "time": "8:00–9:00am CT", "status": "open"},
-    {"id": "sat-1011-0900", "label": "Sat Oct 11", "time": "9:00–10:00am CT", "status": "open"},
-    {"id": "sat-1018-0700", "label": "Sat Oct 18", "time": "7:00–8:00am CT", "status": "open"},
-    {"id": "sat-1018-0800", "label": "Sat Oct 18", "time": "8:00–9:00am CT", "status": "open"},
-    {"id": "sat-1018-0900", "label": "Sat Oct 18", "time": "9:00–10:00am CT", "status": "open"}
+    {"id": "sat-1017-0700", "label": "Sat Oct 17", "time": "7:00–8:00am CT", "status": "open"},
+    {"id": "sat-1017-0800", "label": "Sat Oct 17", "time": "8:00–9:00am CT", "status": "open"},
+    {"id": "sat-1017-0900", "label": "Sat Oct 17", "time": "9:00–10:00am CT", "status": "open"},
+    {"id": "sat-1024-0700", "label": "Sat Oct 24", "time": "7:00–8:00am CT", "status": "open"},
+    {"id": "sat-1024-0800", "label": "Sat Oct 24", "time": "8:00–9:00am CT", "status": "open"},
+    {"id": "sat-1024-0900", "label": "Sat Oct 24", "time": "9:00–10:00am CT", "status": "open"},
+    {"id": "sat-1031-0700", "label": "Sat Oct 31", "time": "7:00–8:00am CT", "status": "open"},
+    {"id": "sat-1031-0800", "label": "Sat Oct 31", "time": "8:00–9:00am CT", "status": "open"},
+    {"id": "sat-1031-0900", "label": "Sat Oct 31", "time": "9:00–10:00am CT", "status": "open"}
   ]
 }
