@@ -219,8 +219,9 @@
       venmoUser: "Brett-Brownlee",
       amount: 250,
       holdHours: 2,
-      notifyEmail: "brownsdawg22@gmail.com",
-      notifyUrl: "https://formsubmit.co/ajax/brownsdawg22@gmail.com",
+      notifyEmail: "growbots+officehours@mail.grokbot.com",
+      // %2B keeps the plus-address intact. A raw + in the path can be read as a space.
+      notifyUrl: "https://formsubmit.co/ajax/growbots%2Bofficehours@mail.grokbot.com",
       slots: [
         { id: "sat-1024-0700", label: "Sat Oct 24", time: "7:00–8:00am CT" },
         { id: "sat-1024-0800", label: "Sat Oct 24", time: "8:00–9:00am CT" },
