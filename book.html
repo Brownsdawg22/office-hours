@@ -118,6 +118,16 @@
       font-size: 14px;
     }
     .note { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 13px; color: var(--muted); line-height: 1.45; }
+    .note.field-error, .note.submit-error { color: var(--accent-dark); }
+    .note.submit-error {
+      background: #f8efe8;
+      border: 1px solid #e7d3c4;
+      border-radius: 10px;
+      padding: 12px;
+      margin-top: 14px;
+    }
+    .note.submit-error a { color: var(--accent-dark); }
+    button.primary:disabled { opacity: 0.6; cursor: wait; }
     .badge { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 12px; color: var(--hold); }
     .hidden { display: none; }
     footer { margin-top: 28px; }
@@ -139,15 +149,18 @@
     <section id="step-slots">
       <h2>Open slots</h2>
       <div class="slots" id="slot-list">
-        <button class="slot" type="button" data-id="sat-1004-0700" data-label="Sat Oct 4" data-time="7:00–8:00am CT"><div><strong>Sat Oct 4</strong><span>7:00–8:00am CT</span></div><span class="badge">Open</span></button>
-        <button class="slot" type="button" data-id="sat-1004-0800" data-label="Sat Oct 4" data-time="8:00–9:00am CT"><div><strong>Sat Oct 4</strong><span>8:00–9:00am CT</span></div><span class="badge">Open</span></button>
-        <button class="slot" type="button" data-id="sat-1004-0900" data-label="Sat Oct 4" data-time="9:00–10:00am CT"><div><strong>Sat Oct 4</strong><span>9:00–10:00am CT</span></div><span class="badge">Open</span></button>
-        <button class="slot" type="button" data-id="sat-1011-0700" data-label="Sat Oct 11" data-time="7:00–8:00am CT"><div><strong>Sat Oct 11</strong><span>7:00–8:00am CT</span></div><span class="badge">Open</span></button>
-        <button class="slot" type="button" data-id="sat-1011-0800" data-label="Sat Oct 11" data-time="8:00–9:00am CT"><div><strong>Sat Oct 11</strong><span>8:00–9:00am CT</span></div><span class="badge">Open</span></button>
-        <button class="slot" type="button" data-id="sat-1011-0900" data-label="Sat Oct 11" data-time="9:00–10:00am CT"><div><strong>Sat Oct 11</strong><span>9:00–10:00am CT</span></div><span class="badge">Open</span></button>
-        <button class="slot" type="button" data-id="sat-1018-0700" data-label="Sat Oct 18" data-time="7:00–8:00am CT"><div><strong>Sat Oct 18</strong><span>7:00–8:00am CT</span></div><span class="badge">Open</span></button>
-        <button class="slot" type="button" data-id="sat-1018-0800" data-label="Sat Oct 18" data-time="8:00–9:00am CT"><div><strong>Sat Oct 18</strong><span>8:00–9:00am CT</span></div><span class="badge">Open</span></button>
-        <button class="slot" type="button" data-id="sat-1018-0900" data-label="Sat Oct 18" data-time="9:00–10:00am CT"><div><strong>Sat Oct 18</strong><span>9:00–10:00am CT</span></div><span class="badge">Open</span></button>
+        <button class="slot" type="button" data-id="sat-1024-0700" data-label="Sat Oct 24" data-time="7:00–8:00am CT"><div><strong>Sat Oct 24</strong><span>7:00–8:00am CT</span></div><span class="badge">Open</span></button>
+        <button class="slot" type="button" data-id="sat-1024-0800" data-label="Sat Oct 24" data-time="8:00–9:00am CT"><div><strong>Sat Oct 24</strong><span>8:00–9:00am CT</span></div><span class="badge">Open</span></button>
+        <button class="slot" type="button" data-id="sat-1024-0900" data-label="Sat Oct 24" data-time="9:00–10:00am CT"><div><strong>Sat Oct 24</strong><span>9:00–10:00am CT</span></div><span class="badge">Open</span></button>
+        <button class="slot" type="button" data-id="sat-1031-0700" data-label="Sat Oct 31" data-time="7:00–8:00am CT"><div><strong>Sat Oct 31</strong><span>7:00–8:00am CT</span></div><span class="badge">Open</span></button>
+        <button class="slot" type="button" data-id="sat-1031-0800" data-label="Sat Oct 31" data-time="8:00–9:00am CT"><div><strong>Sat Oct 31</strong><span>8:00–9:00am CT</span></div><span class="badge">Open</span></button>
+        <button class="slot" type="button" data-id="sat-1031-0900" data-label="Sat Oct 31" data-time="9:00–10:00am CT"><div><strong>Sat Oct 31</strong><span>9:00–10:00am CT</span></div><span class="badge">Open</span></button>
+        <button class="slot" type="button" data-id="sat-1107-0700" data-label="Sat Nov 7" data-time="7:00–8:00am CT"><div><strong>Sat Nov 7</strong><span>7:00–8:00am CT</span></div><span class="badge">Open</span></button>
+        <button class="slot" type="button" data-id="sat-1107-0800" data-label="Sat Nov 7" data-time="8:00–9:00am CT"><div><strong>Sat Nov 7</strong><span>8:00–9:00am CT</span></div><span class="badge">Open</span></button>
+        <button class="slot" type="button" data-id="sat-1107-0900" data-label="Sat Nov 7" data-time="9:00–10:00am CT"><div><strong>Sat Nov 7</strong><span>9:00–10:00am CT</span></div><span class="badge">Open</span></button>
+        <button class="slot" type="button" data-id="sat-1114-0700" data-label="Sat Nov 14" data-time="7:00–8:00am CT"><div><strong>Sat Nov 14</strong><span>7:00–8:00am CT</span></div><span class="badge">Open</span></button>
+        <button class="slot" type="button" data-id="sat-1114-0800" data-label="Sat Nov 14" data-time="8:00–9:00am CT"><div><strong>Sat Nov 14</strong><span>8:00–9:00am CT</span></div><span class="badge">Open</span></button>
+        <button class="slot" type="button" data-id="sat-1114-0900" data-label="Sat Nov 14" data-time="9:00–10:00am CT"><div><strong>Sat Nov 14</strong><span>9:00–10:00am CT</span></div><span class="badge">Open</span></button>
 </div>
     </section>
 
@@ -161,7 +174,8 @@
         </div>
         <div>
           <label for="email">Email for the invite</label>
-          <input id="email" type="email" required placeholder="you@email.com" />
+          <input id="email" type="email" required autocomplete="email" placeholder="you@email.com" />
+          <p class="note field-error hidden" id="email-error" role="alert">Enter a valid email address. The Google Meet invite goes there.</p>
         </div>
       </div>
       <label for="handle">X handle</label>
@@ -172,6 +186,7 @@
         <option value="venmo">Venmo — $250 to the username below</option>
       </select>
       <button class="primary" type="submit">Continue to payment</button>
+      <p class="note submit-error hidden" id="submit-error" role="alert"></p>
     </form>
 
     <section id="step-pay" class="panel hidden">
@@ -204,16 +219,22 @@
       venmoUser: "Brett-Brownlee",
       amount: 250,
       holdHours: 2,
+      notifyEmail: "growbots+officehours@mail.grokbot.com",
+      // %2B keeps the plus-address intact. A raw + in the path can be read as a space.
+      notifyUrl: "https://formsubmit.co/ajax/growbots%2Bofficehours@mail.grokbot.com",
       slots: [
-        { id: "sat-1004-0700", label: "Sat Oct 4", time: "7:00–8:00am CT" },
-        { id: "sat-1004-0800", label: "Sat Oct 4", time: "8:00–9:00am CT" },
-        { id: "sat-1004-0900", label: "Sat Oct 4", time: "9:00–10:00am CT" },
-        { id: "sat-1011-0700", label: "Sat Oct 11", time: "7:00–8:00am CT" },
-        { id: "sat-1011-0800", label: "Sat Oct 11", time: "8:00–9:00am CT" },
-        { id: "sat-1011-0900", label: "Sat Oct 11", time: "9:00–10:00am CT" },
-        { id: "sat-1018-0700", label: "Sat Oct 18", time: "7:00–8:00am CT" },
-        { id: "sat-1018-0800", label: "Sat Oct 18", time: "8:00–9:00am CT" },
-        { id: "sat-1018-0900", label: "Sat Oct 18", time: "9:00–10:00am CT" }
+        { id: "sat-1024-0700", label: "Sat Oct 24", time: "7:00–8:00am CT" },
+        { id: "sat-1024-0800", label: "Sat Oct 24", time: "8:00–9:00am CT" },
+        { id: "sat-1024-0900", label: "Sat Oct 24", time: "9:00–10:00am CT" },
+        { id: "sat-1031-0700", label: "Sat Oct 31", time: "7:00–8:00am CT" },
+        { id: "sat-1031-0800", label: "Sat Oct 31", time: "8:00–9:00am CT" },
+        { id: "sat-1031-0900", label: "Sat Oct 31", time: "9:00–10:00am CT" },
+        { id: "sat-1107-0700", label: "Sat Nov 7", time: "7:00–8:00am CT" },
+        { id: "sat-1107-0800", label: "Sat Nov 7", time: "8:00–9:00am CT" },
+        { id: "sat-1107-0900", label: "Sat Nov 7", time: "9:00–10:00am CT" },
+        { id: "sat-1114-0700", label: "Sat Nov 14", time: "7:00–8:00am CT" },
+        { id: "sat-1114-0800", label: "Sat Nov 14", time: "8:00–9:00am CT" },
+        { id: "sat-1114-0900", label: "Sat Nov 14", time: "9:00–10:00am CT" }
       ]
     };
 
@@ -226,6 +247,90 @@
 
     const list = document.getElementById("slot-list");
     let selected = null;
+    let submitting = false;
+
+    function isValidEmail(value) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value);
+    }
+
+    function bookingSubject(ref, slot) {
+      return `Office hours booking: ${ref} ${slot.label} ${slot.time}`;
+    }
+
+    function bookingBody(fields) {
+      return [
+        `Name: ${fields.name}`,
+        `Email: ${fields.email}`,
+        `X handle: ${fields.handle || "n/a"}`,
+        `Slot id: ${fields.slot.id}`,
+        `Label: ${fields.slot.label}`,
+        `Time: ${fields.slot.time}`,
+        `Reference: ${fields.ref}`,
+        `Reserved at: ${fields.timestamp}`
+      ].join("\n");
+    }
+
+    function mailtoHref(subject, body) {
+      return `mailto:${CONFIG.notifyEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    }
+
+    function showEmailError() {
+      const email = document.getElementById("email");
+      email.setAttribute("aria-invalid", "true");
+      document.getElementById("email-error").classList.remove("hidden");
+      email.focus();
+    }
+
+    function clearEmailError() {
+      document.getElementById("email").removeAttribute("aria-invalid");
+      document.getElementById("email-error").classList.add("hidden");
+    }
+
+    function showDeliveryError(subject, body) {
+      const box = document.getElementById("submit-error");
+      box.replaceChildren();
+      box.append("We could not send this reservation to Brett, so the slot was not held and payment is not open. Email the same details instead: ");
+      const link = document.createElement("a");
+      link.href = mailtoHref(subject, body);
+      link.textContent = `Email ${CONFIG.notifyEmail}`;
+      box.append(link);
+      box.classList.remove("hidden");
+    }
+
+    function selectSlot(slot, btn) {
+      if (submitting) return;
+      selected = slot;
+      document.querySelectorAll("button.slot").forEach((el) => el.classList.remove("selected"));
+      btn.classList.add("selected");
+      document.getElementById("submit-error").classList.add("hidden");
+      document.getElementById("step-details").classList.remove("hidden");
+      document.getElementById("chosen-label").textContent = slot.label + " · " + slot.time;
+      document.getElementById("step-details").scrollIntoView({ behavior: "smooth" });
+    }
+
+    // FormSubmit answers with HTTP 200 and success "true" or "false" (both strings).
+    // Before the one-time activation click, success is "false" and nothing is delivered.
+    async function deliverBooking(payload) {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), 20000);
+      try {
+        const res = await fetch(CONFIG.notifyUrl, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json"
+          },
+          body: JSON.stringify(payload),
+          signal: controller.signal
+        });
+        const data = await res.json().catch(() => null);
+        return Boolean(res.ok && data && String(data.success) === "true");
+      } catch (err) {
+        return false;
+      } finally {
+        clearTimeout(timer);
+      }
+    }
 
     function renderSlots() {
       list.innerHTML = "";
@@ -234,17 +339,13 @@
       const btn = document.createElement("button");
       btn.type = "button";
       btn.className = "slot";
+      btn.dataset.id = slot.id;
+      btn.dataset.label = slot.label;
+      btn.dataset.time = slot.time;
       const taken = slot.status && slot.status !== "open";
       btn.disabled = Boolean(held) || taken;
       btn.innerHTML = `<div><strong>${slot.label}</strong><span>${slot.time}</span></div><span class="badge">${taken ? "Taken" : held ? "Held" : "Open"}</span>`;
-      btn.addEventListener("click", () => {
-        selected = slot;
-        document.querySelectorAll("button.slot").forEach((el) => el.classList.remove("selected"));
-        btn.classList.add("selected");
-        document.getElementById("step-details").classList.remove("hidden");
-        document.getElementById("chosen-label").textContent = slot.label + " · " + slot.time;
-        document.getElementById("step-details").scrollIntoView({ behavior: "smooth" });
-      });
+      btn.addEventListener("click", () => selectSlot(slot, btn));
       list.appendChild(btn);
       });
     }
@@ -256,18 +357,77 @@
       }
     }).catch(() => {});
 
-    document.getElementById("step-details").addEventListener("submit", (event) => {
+    document.getElementById("email").addEventListener("invalid", (event) => {
       event.preventDefault();
+      showEmailError();
+    });
+    document.getElementById("email").addEventListener("input", clearEmailError);
+
+    document.getElementById("step-details").addEventListener("submit", async (event) => {
+      event.preventDefault();
+      if (!selected || submitting) return;
+      const slot = selected;
       const name = document.getElementById("name").value.trim();
       const email = document.getElementById("email").value.trim();
       const handle = document.getElementById("handle").value.trim();
       const method = document.getElementById("method").value;
-      const ref = "OH-" + selected.id.slice(-4).toUpperCase() + "-" + Math.random().toString(36).slice(2, 6).toUpperCase();
-      holds[selected.id] = { expires: Date.now() + CONFIG.holdHours * 3600 * 1000, ref, name, email };
+      document.getElementById("name").value = name;
+      document.getElementById("email").value = email;
+      document.getElementById("submit-error").classList.add("hidden");
+      if (!name || !isValidEmail(email)) {
+        if (!isValidEmail(email)) showEmailError();
+        if (!name) document.getElementById("name").focus();
+        return;
+      }
+      clearEmailError();
+
+      const ref = "OH-" + slot.id.slice(-4).toUpperCase() + "-" + Math.random().toString(36).slice(2, 6).toUpperCase();
+      const reservedAt = new Date();
+      const timestamp = `${reservedAt.toISOString()} (${new Intl.DateTimeFormat("en-US", {
+        timeZone: "America/Chicago",
+        dateStyle: "full",
+        timeStyle: "long"
+      }).format(reservedAt)})`;
+      const subject = bookingSubject(ref, slot);
+      const body = bookingBody({ name, email, handle, slot, ref, timestamp });
+      const submitBtn = event.currentTarget.querySelector("button.primary");
+      const originalLabel = submitBtn.textContent;
+      submitting = true;
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Sending reservation...";
+
+      const payload = {
+        _subject: subject,
+        _template: "table",
+        _captcha: "false",
+        _replyto: email,
+        name,
+        email,
+        "X handle": handle || "n/a",
+        "Slot id": slot.id,
+        Label: slot.label,
+        Time: slot.time,
+        Reference: ref,
+        "Reserved at": timestamp,
+        "Payment method": method === "venmo" ? "Venmo" : "X Money",
+        Booking: body
+      };
+
+      const delivered = await deliverBooking(payload);
+      submitting = false;
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalLabel;
+      if (!delivered) {
+        document.getElementById("step-pay").classList.add("hidden");
+        showDeliveryError(subject, body);
+        return;
+      }
+
+      holds[slot.id] = { expires: Date.now() + CONFIG.holdHours * 3600 * 1000, ref, name, email };
       localStorage.setItem("oh-holds", JSON.stringify(holds));
 
-      const note = `${ref} Meet ${selected.label} ${selected.time} ${name}`;
-      document.getElementById("pay-summary").textContent = `${name} · ${email} · ${selected.label} ${selected.time}`;
+      const note = `${ref} Meet ${slot.label} ${slot.time} ${name}`;
+      document.getElementById("pay-summary").textContent = `${name} · ${email} · ${slot.label} ${slot.time}`;
       document.getElementById("ref-code").textContent = "Reference " + ref + " · include this in the payment note";
       document.getElementById("xmoney-card").classList.toggle("hidden", method !== "xmoney");
       document.getElementById("venmo-card").classList.toggle("hidden", method !== "venmo");
@@ -277,7 +437,7 @@
       document.getElementById("step-pay").classList.remove("hidden");
       document.getElementById("step-pay").scrollIntoView({ behavior: "smooth" });
 
-      const packet = { ref, name, email, handle, method, slot: selected, amount: CONFIG.amount, note };
+      const packet = { ref, name, email, handle, method, slot, amount: CONFIG.amount, note, timestamp };
       document.getElementById("copy-btn").onclick = async () => {
         const text = `Paid consult request\n${note}\nEmail: ${email}\nX: ${handle || "n/a"}\nPay via: ${method}\nAmount: $${CONFIG.amount}`;
         try { await navigator.clipboard.writeText(text); document.getElementById("copy-btn").textContent = "Copied"; }
@@ -287,16 +447,6 @@
     });
 
     document.getElementById("reset-btn").addEventListener("click", () => location.reload());
-  
-    document.querySelectorAll("button.slot").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        selected = { id: btn.dataset.id, label: btn.dataset.label, time: btn.dataset.time };
-        document.querySelectorAll("button.slot").forEach((el) => el.classList.remove("selected"));
-        btn.classList.add("selected");
-        document.getElementById("step-details").classList.remove("hidden");
-        document.getElementById("chosen-label").textContent = selected.label + " · " + selected.time;
-      });
-    });
 
 </script>
 </body>
